@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Slider;
 
 class PagesController extends Controller
 {
     public function getindex(){
-        return view('frontend.pages.index');
+        $slider = Slider::select('name','title','image','url')->orderBy('id','DESC')->skip(0)->take(5)->get();
+        return view('frontend.pages.index',compact('slider'));
     }
 
 

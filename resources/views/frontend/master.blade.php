@@ -31,19 +31,29 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Kusina</a>
+	      <a class="navbar-brand" href="/">Chisi20</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-	        	<li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
+	        	<li class="nav-item active"><a href="/" class="nav-link">Trang chủ</a></li>
+	        	<li class="nav-item"><a href="{{route('about')}}" class="nav-link">Giới Thiệu</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Loại Sản Phẩm</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Túi Xách</a>
+                    <a class="dropdown-item" href="#">Giầy Dép</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
 	        	<li class="nav-item"><a href="{{route('menu_products')}}" class="nav-link">Specialties</a></li>
 	        	<li class="nav-item"><a href="reservation.html" class="nav-link">Reservation</a></li>
-	        	<li class="nav-item"><a href="blog.html" class="nav-link">Stories</a></li>
-	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+	        	<!-- <li class="nav-item"><a href="blog.html" class="nav-link">Stories</a></li> -->
+	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Liên Hệ</a></li>
+              
 	        </ul>
 	      </div>
 	    </div>
@@ -59,7 +69,7 @@
         <div class="row mb-5">
           <div class="col-md-6 col-lg-3">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Kusina</h2>
+              <h2 class="ftco-heading-2">Chisi20</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
