@@ -39,8 +39,9 @@
         <section class="ftco-section ftco-wrap-about ftco-no-pb ftco-no-pt">
 			<div class="container">
 				<div class="row no-gutters">
+					@foreach($about as $item_about)
 					<div class="col-sm-5 img img-2 d-flex align-items-center justify-content-center justify-content-md-end" style="background-image: url({{asset('images/about.jpg')}}); position: relative">
-						<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+						<a href="{{$item_about->url}}" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
   						<span class="ion-ios-play"></span>
   					</a>
 					</div>
@@ -48,28 +49,29 @@
 	          <div class="heading-section mt-5 mb-4">
 	          	<div class="pl-lg-5 ml-md-5">
 		          	<span class="subheading">About</span>
-		            <h2 class="mb-4">Welcome to Kusina Restaurant</h2>
+		            <h2 class="mb-4">{{$item_about->title}}</h2>
 	            </div>
 	          </div>
 	          <div class="pl-lg-5 ml-md-5">
-							<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+							<p>{!! $item_about->content !!}</p>
 							<h3 class="mt-5">Special Recipe</h3>
 							<div class="thumb my-4 d-flex">
 	            	<a href="#" class="thumb-menu pr-md-4 text-center">
-	            		<div class="img" style="background-image: url({{asset('images/lunch-4.jpg')}});"></div>
+	            		<div class="img" style="background-image: url({{asset('storage/'.$item_about->image_1)}});"></div>
 	            		<h4>Australian Organic Beef</h4>
 	            	</a>
 	            	<a href="#" class="thumb-menu pr-md-4 text-center">
-	            		<div class="img" style="background-image: url({{asset('images/lunch-7.jpg')}});"></div>
+	            		<div class="img" style="background-image: url({{asset('storage/'.$item_about->image_2)}});"></div>
 	            		<h4>Australian Organic Beef</h4>
 	            	</a>
 	            	<a href="#" class="thumb-menu pr-md-4 text-center">
-	            		<div class="img" style="background-image: url({{asset('images/lunch-6.jpg')}});"></div>
+	            		<div class="img" style="background-image: url({{asset('storage/'.$item_about->image_3)}});"></div>
 	            		<h4>Australian Organic Beef</h4>
 	            	</a>
 	            </div>
 						</div>
 					</div>
+					@endforeach
 				</div>
 			</div>
 		</section>
@@ -122,7 +124,7 @@
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Specialties</span>
+          	<span class="subheading">Chisi20</span>
             <h2 class="mb-4">Our Menu</h2>
           </div>
         </div>
@@ -131,144 +133,64 @@
         		<div class="heading-menu text-center ftco-animate">
         			<h3>Breakfast</h3>
         		</div>
+						@foreach($breakfast as $item_breakfast)
         		<div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/breakfast-1.jpg')}});"></div>
+              <div class="menu-img img" style="background-image: url({{asset('storage/'.$item_breakfast->image_3)}});"></div>
               <div class="text">
               	<div class="d-flex">
 	                <div class="one-half">
-	                  <h3>Grilled Beef with potatoes</h3>
+	                  <h3>{{$item_breakfast->title}}</h3>
 	                </div>
 	                <div class="one-forth">
-	                  <span class="price">$29</span>
+	                  <span class="price">{{number_format($item_breakfast->price)}} VND</span>
 	                </div>
 	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+	              <p><span>{{$item_breakfast->excerpt}}</span></p>
               </div>
             </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/breakfast-2.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/breakfast-3.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
+            @endforeach
         	</div>
-
         	<div class="col-md-6 col-lg-4 menu-wrap">
         		<div class="heading-menu text-center ftco-animate">
         			<h3>Lunch</h3>
         		</div>
+						@foreach($lunch as $item_lunch)
         		<div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url(images/lunch-1.jpg);"></div>
+              <div class="menu-img img" style="background-image: url({{asset('storage/'.$item_lunch->image_3)}});"></div>
               <div class="text">
               	<div class="d-flex">
 	                <div class="one-half">
-	                  <h3>Grilled Beef with potatoes</h3>
+	                  <h3>{{$item_lunch->title}}</h3>
 	                </div>
 	                <div class="one-forth">
-	                  <span class="price">$29</span>
+	                  <span class="price">{{number_format($item_lunch->price)}} VND</span>
 	                </div>
 	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+	              <p><span>{{$item_lunch->excerpt}}</span></p>
               </div>
             </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/lunch-2.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/lunch-3.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
+            @endforeach
         	</div>
-
         	<div class="col-md-6 col-lg-4 menu-wrap">
         		<div class="heading-menu text-center ftco-animate">
         			<h3>Dinner</h3>
         		</div>
+						@foreach($dinner as $item_dinner)
         		<div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/dinner-1.jpg')}});"></div>
+              <div class="menu-img img" style="background-image: url({{asset('storage/'.$item_dinner->image_3)}});"></div>
               <div class="text">
               	<div class="d-flex">
 	                <div class="one-half">
-	                  <h3>Grilled Beef with potatoes</h3>
+	                  <h3>{{$item_dinner->title}}</h3>
 	                </div>
 	                <div class="one-forth">
-	                  <span class="price">$29</span>
+	                  <span class="price">{{number_format($item_dinner->price)}} VND</span>
 	                </div>
 	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+	              <p><span>{{$item_dinner->excerpt}}</span></p>
               </div>
             </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/dinner-2.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/dinner-3.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
+            @endforeach
         	</div>
 
         	<!--  -->
@@ -276,144 +198,66 @@
         		<div class="heading-menu text-center ftco-animate">
         			<h3>Desserts</h3>
         		</div>
+						@foreach($desserts as $item_desserts)
         		<div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/dessert-1.jpg')}});"></div>
+              <div class="menu-img img" style="background-image: url({{asset('storage/'.$item_desserts->image_3)}});"></div>
               <div class="text">
               	<div class="d-flex">
 	                <div class="one-half">
-	                  <h3>Grilled Beef with potatoes</h3>
+	                  <h3>{{$item_desserts->title}}</h3>
 	                </div>
 	                <div class="one-forth">
-	                  <span class="price">$29</span>
+	                  <span class="price">{{number_format($item_desserts->price)}} VND</span>
 	                </div>
 	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+	              <p><span>{{$item_desserts->excerpt}}</span></p>
               </div>
             </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/dessert-2.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/dessert-3.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
+            @endforeach
         	</div>
         	
         	<div class="col-md-6 col-lg-4 menu-wrap">
         		<div class="heading-menu text-center ftco-animate">
         			<h3>Wine Card</h3>
         		</div>
+						@foreach($wine_card as $item_wine_card)
         		<div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/wine-1.jpg')}});"></div>
+              <div class="menu-img img" style="background-image: url({{asset('storage/'.$item_wine_card->image_3)}});"></div>
               <div class="text">
               	<div class="d-flex">
 	                <div class="one-half">
-	                  <h3>Grilled Beef with potatoes</h3>
+	                  <h3>{{$item_wine_card->title}}</h3>
 	                </div>
 	                <div class="one-forth">
-	                  <span class="price">$29</span>
+	                  <span class="price">{{number_format($item_wine_card->price)}} VND</span>
 	                </div>
 	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+	              <p><span>{{$item_wine_card->excerpt}}</span></p>
               </div>
             </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/wine-2.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/wine-3.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
+            @endforeach
         	</div>
 
         	<div class="col-md-6 col-lg-4 menu-wrap">
         		<div class="heading-menu text-center ftco-animate">
         			<h3>Drinks</h3>
         		</div>
+						@foreach($drinks as $item_drinks)
         		<div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/drink-1.jpg')}});"></div>
+              <div class="menu-img img" style="background-image: url({{asset('storage/'.$item_wine_card->image_3)}});"></div>
               <div class="text">
               	<div class="d-flex">
 	                <div class="one-half">
-	                  <h3>Grilled Beef with potatoes</h3>
+	                  <h3>{{$item_wine_card->title}}</h3>
 	                </div>
 	                <div class="one-forth">
-	                  <span class="price">$29</span>
+	                  <span class="price">{{number_format($item_wine_card->price)}} VND</span>
 	                </div>
 	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+	              <p><span>{{$item_wine_card->excerpt}}</span></p>
               </div>
             </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/drink-2.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
-            <div class="menus d-flex ftco-animate">
-              <div class="menu-img img" style="background-image: url({{asset('images/drink-3.jpg')}});"></div>
-              <div class="text">
-              	<div class="d-flex">
-	                <div class="one-half">
-	                  <h3>Grilled Crab with Onion</h3>
-	                </div>
-	                <div class="one-forth">
-	                  <span class="price">$29</span>
-	                </div>
-	              </div>
-	              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-              </div>
-            </div>
+            @endforeach
         	</div>
         </div>
         <div class="row">
